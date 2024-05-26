@@ -1,17 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from '../../redux/contactsOps';
-import { selectError, selectIsLoading } from '../../redux/selectors';
+import { selectError, selectLoading } from '../../redux/contactsSlice';
 import ContactForm from '../ContactForm/ContactForm';
 import SearchBox from '../SearchBox/SearchBox';
 import ContactList from '../ContactList/ContactList';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Loader from '../Loader/Loader';
-import './App.module.css';
 
-function App() {
+
+export default function App() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
   useEffect(() => {
@@ -29,4 +29,4 @@ function App() {
   );
 }
 
-export default App;
+
